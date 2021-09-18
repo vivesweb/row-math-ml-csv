@@ -11,7 +11,7 @@ When working with datasets, before entering them into the neural network for dee
 ## Data engineering support Class in PHP that extract properties in .csv files of datasets ML rows to detect errors. It will help you to get a consistent datasets.
 
 What do:
-- Extract the type/s of each col of the row [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'string_anyway']
+- Extract the type/s of each col of the row [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'positive', 'negative', 'float', 'integer' ]
 - Calc the number of empty cols in a row
 - Calc the percentage of empty cols in a row
 - Clean the data: Trim the data and clear '' or "" enclosures of each col
@@ -63,7 +63,7 @@ What do:
 
 # AVAILABLE PROPERTIES
 
-        [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'string_anyway']
+        [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'positive', 'negative', 'float', 'integer' ]
 
 # METHODS:
 
