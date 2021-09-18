@@ -11,7 +11,7 @@ When working with datasets, before entering them into the neural network for dee
 ## Data engineering support Class in PHP that extract properties in .csv files of datasets ML rows to detect errors. It will help you to get a consistent datasets.
 
 What do:
-- Extract the type of each col in row [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'string_anyway']
+- Extract the type/s of each col of the row [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'string_anyway']
 - Calc the number of empty cols in a row
 - Calc the percentage of empty cols in a row
 - Clean the data: Trim the data and clear '' or "" enclosures of each col
@@ -61,6 +61,10 @@ What do:
 
         $row_math_ml_csv->col[3]->is('date'); // return true
 
+# AVAILABLE PROPERTIES
+
+        [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'string_anyway']
+
 # METHODS:
 
  - *row_math_ml_csv( $arr_alues ):* Create new class object with array of values:
@@ -86,6 +90,38 @@ What do:
  - *re_set_data_struct( $arr_data ):* Set the data without touch structure, only changes the values of the structure created before. Is similar to set_data_struct(), but in this case, the system reuses the structure created previously for gain speed.
 
         $row_math_ml_csv->re_set_data_struct( $arr_alues );
+        
+ - *num_empty_cols( ):* return int. Get the number of empty cols in the row.
+
+        $row_math_ml_csv->num_empty_cols( );
+        
+ - *perc_empty_cols( ):* return float. Get the number in % (from 0 to 1) of empty cols in the row.
+
+        $row_math_ml_csv->perc_empty_cols( );
+        
+ - *col[id]->is( $propertie ):* Return [true|false]Get if col[id] is $propertie. See Available Properties
+
+        $row_math_ml_csv->col[3]->is( 'numeric' );
+        
+ - *col[id]->type( ):* Return String. Get the type col[id]. See Available Properties. If is string, it returns 'string_anyway'. If is empty ('', null, 'null', 'na', 'nan', '-') then return 'empty_anyway'. To check a specific property, use *col[id]->is( $propertie )*.
+
+        $row_math_ml_csv->col[2]->type( ); // return something like 'numeric'
+        
+ - *col[id]->arr_true_properties( ):* Return array of properties string of a col. Get the properties that have [true] value
+
+        $row_math_ml_csv->col[2]->arr_true_properties( ); // return something like ['numeric', 'zero']
+        
+ - *col[id]->get_properties( ):* Return array of all available properties with their values.
+
+        $row_math_ml_csv->col[2]->get_properties( ); // return something like [ 'empty' => false, 'empty_null' => false, 'empty_nan' => false, 'empty_anyway' => false, 'string' => false, 'ip' => false, 'date' => false, 'numeric' => true, 'zero' => true, 'str_with_commas' => false, 'string_anyway' => false ]
+        
+ - *col[id]->get_structure( ):* Is synonymous of get_properties( ).
+        
+ - *col[id]->value( ):* Return the trim() original value parsed without enclosure "" or ''
+
+        echo $row_math_ml_csv->col[1]->value( ); // See next line of the example
+        
+        dirty string enclosed by double quotes
         
  
  **Of course. You can use it freely :vulcan_salute::alien:**
