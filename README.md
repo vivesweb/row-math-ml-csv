@@ -55,11 +55,11 @@ What do:
         
  - 3.- Get the type of col 3:
 
-        echo $row_math_ml_csv->col[3]->type(); // Echo 'date'
+        echo $row_math_ml_csv->cols[3]->type(); // Echo 'date'
         
  - 4.- col 3 is date???:
 
-        $row_math_ml_csv->col[3]->is('date'); // return true
+        $row_math_ml_csv->cols[3]->is('date'); // return true
 
 # AVAILABLE PROPERTIES
 
@@ -109,27 +109,27 @@ What do:
         // 0.6 = 60%
         // 1 = 100%
         
- - *col[id]->is( $propertie ):* Return [true|false]Get if col[id] is $propertie. See Available Properties
+ - *cols[id]->is( $propertie ):* Return [true|false]Get if col[id] is $propertie. See Available Properties
 
-        $row_math_ml_csv->col[3]->is( 'numeric' ); // return false in the example because col[3] is 'This is a string text', and is not numeric, is 'string'
+        $row_math_ml_csv->cols[3]->is( 'numeric' ); // return false in the example because col[3] is 'This is a string text', and is not numeric, is 'string'
         
- - *col[id]->type( ):* Return String. Get the type col[id]. See Available Properties. If is string, it returns 'string_anyway'. If is empty ('', null, 'null', 'na', 'nan', '-') then return 'empty_anyway'. To check a specific property, use *col[id]->is( $propertie )*.
+ - *cols[id]->type( ):* Return String. Get the type col[id]. See Available Properties. If is string, it returns 'string_anyway'. If is empty ('', null, 'null', 'na', 'nan', '-') then return 'empty_anyway'. To check a specific property, use *col[id]->is( $propertie )*.
 
-        $row_math_ml_csv->col[2]->type( ); // return something like 'numeric'
+        $row_math_ml_csv->cols[2]->type( ); // return something like 'numeric'
         
- - *col[id]->arr_true_properties( ):* Return array of properties string of a col. Get the properties that have [true] value
+ - *cols[id]->arr_true_properties( ):* Return array of properties string of a col. Get the properties that have [true] value
 
-        $row_math_ml_csv->col[2]->arr_true_properties( ); // return something like ['numeric', 'zero']
+        $row_math_ml_csv->cols[2]->arr_true_properties( ); // return something like ['numeric', 'zero']
         
- - *col[id]->get_properties( ):* Return array of all available properties with their values.
+ - *cols[id]->get_properties( ):* Return array of all available properties with their values.
 
-        $row_math_ml_csv->col[2]->get_properties( ); // return something like [ 'empty' => false, 'empty_null' => false, 'empty_nan' => false, 'empty_anyway' => false, 'string' => false, 'ip' => false, 'date' => false, 'numeric' => true, 'zero' => true, 'str_with_commas' => false, 'string_anyway' => false ]
+        $row_math_ml_csv->cols[2]->get_properties( ); // return something like [ 'empty' => false, 'empty_null' => false, 'empty_nan' => false, 'empty_anyway' => false, 'string' => false, 'ip' => false, 'date' => false, 'numeric' => true, 'zero' => true, 'str_with_commas' => false, 'string_anyway' => false ]
         
- - *col[id]->get_structure( ):* Is synonymous of get_properties( ).
+ - *cols[id]->get_structure( ):* Is synonymous of get_properties( ).
         
- - *col[id]->value( ):* Return the trim() original value parsed without enclosure "" or ''
+ - *cols[id]->value( ):* Return the trim() original value parsed without enclosure "" or ''
 
-        echo $row_math_ml_csv->col[1]->value( ); // See next line of the example
+        echo $row_math_ml_csv->cols[1]->value( ); // See next line of the example
         
         dirty string enclosed by double quotes
         
