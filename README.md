@@ -47,11 +47,11 @@ What do:
 
  - 1.- Get an array with the values of the csv. We can use a simple array as an example
  
-       $Values = ['10', '  "dirty string enclosed by double quotes"   ', '0', 'This is a string text', '2021-10-10', '192,168.1.1', '', 'null', null, 'na', 'nan', '-', 'string with, comma'];
+       $arr_values = ['10', '  "dirty string enclosed by double quotes"   ', '0', 'This is a string text', '2021-10-10', '192,168.1.1', '', 'null', null, 'na', 'nan', '-', 'string with, comma'];
 
  - 2.- Create the Class with the Values and draw the table:
 
-        $row_math_ml_csv = new row_math_ml_csv( $Values );
+        $row_math_ml_csv = new row_math_ml_csv( $arr_values );
         
  - 3.- Get the type of col 3:
 
@@ -111,7 +111,7 @@ What do:
         
  - *col[id]->is( $propertie ):* Return [true|false]Get if col[id] is $propertie. See Available Properties
 
-        $row_math_ml_csv->col[3]->is( 'numeric' );
+        $row_math_ml_csv->col[3]->is( 'numeric' ); // return false in the example because col[3] is 'This is a string text', and is not numeric, is 'string'
         
  - *col[id]->type( ):* Return String. Get the type col[id]. See Available Properties. If is string, it returns 'string_anyway'. If is empty ('', null, 'null', 'na', 'nan', '-') then return 'empty_anyway'. To check a specific property, use *col[id]->is( $propertie )*.
 
