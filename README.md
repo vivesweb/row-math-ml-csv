@@ -53,13 +53,13 @@ What do:
 
         $row_math_ml_csv = new row_math_ml_csv( $arr_values );
         
- - 3.- Get the type of col 3:
+ - 3.- Get the type of col 4:
 
-        echo $row_math_ml_csv->cols[3]->type(); // Echo 'date'
+        echo $row_math_ml_csv->cols[4]->type(); // Echo 'date'
         
- - 4.- col 3 is date???:
+ - 4.- col 4 is date???:
 
-        $row_math_ml_csv->cols[3]->is('date'); // return true
+        $row_math_ml_csv->cols[4]->is('date'); // return true
 
 # AVAILABLE PROPERTIES
 
