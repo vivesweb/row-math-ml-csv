@@ -67,7 +67,7 @@ What do:
 
 # METHODS:
 
- - *row_math_ml_csv( $arr_alues ):* Create new class object with array of values:
+ - *row_math_ml_csv( $arr_alues, $do_math_calcs = true ):* Create new class object with array of values:
 
         $row_math_ml_csv = new row_math_ml_csv( $arr_alues );
         
@@ -102,6 +102,12 @@ What do:
  - *perc_empty_cols( ):* return float. Get the number in % (from 0 to 1) of empty cols in the row.
 
         $row_math_ml_csv->perc_empty_cols( );
+        
+        // Examples:
+        // 0.05 = 5%
+        // 0.3 = 30%
+        // 0.6 = 60%
+        // 1 = 100%
         
  - *col[id]->is( $propertie ):* Return [true|false]Get if col[id] is $propertie. See Available Properties
 
