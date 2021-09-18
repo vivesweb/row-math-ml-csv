@@ -6,7 +6,7 @@
 
 This class is designed to work with csv data rows, but you can to check any array of data that you need.
 
-When working with datasets, before entering them into the neural network for deep learning, you need to review the data to classify it. You need to know if there are empty, null, erroneous values, if the content is of type numeric, string, date, ip, Zero values is a lot of important to se inconsistent data and the class return a propertie for zeros, string with commas are also important because the value can be a number saparate with ',' instead of '.', .... This class row-math-ml-csv does this work for us
+When working with datasets, before entering them into the neural network for deep learning, you need to review the data to classify it. You need to know if there are empty, null, erroneous values, if the content is of type numeric, string, date, ip, Zero values is a lot of important to see inconsistent data, string with commas are also important because the value can be a decimal number saparate with ',' instead of '.', .... This class row-math-ml-csv does this work for us.
 
 ## Data engineering support Class in PHP that extract properties in .csv files of datasets ML rows to detect errors. It will help you to get a consistent datasets.
 
