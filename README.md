@@ -61,7 +61,19 @@ What do:
 
         $row_math_ml_csv->col[3]->is('date'); // return true
 
+# METHODS:
 
+ - *row_math_ml_csv( $arr_alues ):* Create new class object with array of values:
+
+        $row_math_ml_csv = new row_math_ml_csv( $arr_alues );
+        
+ - *set_math_calcs( true|false ):* Set the class to do or no Math Calcs. The class calculate the number of empty rows and it percentage. Calcs spend valuable time on loops. It can be disabled if we don't need these operation math for speed it.
+
+        $row_math_ml_csv->set_math_calcs( false );
+        
+ - *unset_data( ):* Unset the data and Structure of the class.
+
+        $row_math_ml_csv->unset_data( );
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
