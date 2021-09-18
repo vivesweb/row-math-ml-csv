@@ -133,6 +133,7 @@ What do:
         
         dirty string enclosed by double quotes
         
+ - *cols[id]->val( ):* Is synonymous of value( ).
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
