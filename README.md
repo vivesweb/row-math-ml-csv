@@ -71,7 +71,11 @@ What do:
 
         $row_math_ml_csv = new row_math_ml_csv( $arr_alues );
         
- - *set_math_calcs( true|false ):* Set the class to do or no Math Calcs. The class calculate the number of empty rows and it percentage. Calcs spend valuable time on loops. It can be disabled if we don't need these operation math for speed it.
+        // You can give a $do_calcs param to configure the class for allow or disable math calcs. By default the math calcs are enabled.
+        
+        $row_math_ml_csv = new row_math_ml_csv( $arr_alues, false );
+        
+ - *set_math_calcs( true|false ):* Set the class to do or no Math Calcs. The class calculate the number of empty rows and it percentage. Calcs spend valuable time on loops. It can be disabled if we don't need these operation math for speed it. Note: You can specify it too when create the class.
 
         $row_math_ml_csv->set_math_calcs( false );
         
