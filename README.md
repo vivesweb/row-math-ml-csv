@@ -74,6 +74,19 @@ What do:
  - *unset_data( ):* Unset the data and Structure of the class.
 
         $row_math_ml_csv->unset_data( );
+        
+ - *prepare_data_struct( $num_cols ):* Create the structure of the data for use later. The use of this method is for reuse the class and gain speed.
+
+        $row_math_ml_csv->prepare_data_struct( $num_cols );
+        
+ - *set_data_struct( $arr_data, $num_cols = 0 ):* Set the data and structure. If you gives $num_cols, the system use it value. If not then the class calculate with count($arr_data).
+
+        $row_math_ml_csv->set_data_struct( $arr_alues );
+        
+ - *re_set_data_struct( $arr_data ):* Set the data without touch structure, only changes the values of the structure created before. Is similar to set_data_struct(), but in this case, the system reuses the structure created previously for gain speed.
+
+        $row_math_ml_csv->re_set_data_struct( $arr_alues );
+        
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
