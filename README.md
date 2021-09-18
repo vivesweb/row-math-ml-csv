@@ -47,7 +47,7 @@ What do:
 
  - 1.- Get an array with the values of the csv. We can use a simple array as an example
  
-       $arr_values = ['10', '  "dirty string enclosed by double quotes"   ', '0', 'This is a string text', '2021-10-10', '192,168.1.1', '', 'null', null, 'na', 'nan', '-', 'string with, comma'];
+       $arr_values = ['10', '  "dirty string enclosed by double quotes"   ', '0', 'This is a string text', '2021-10-10', '192.168.1.1', '', 'null', null, 'na', 'nan', '-', 'string with, comma'];
 
  - 2.- Create the Class with the Values and draw the table:
 
