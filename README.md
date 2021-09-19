@@ -195,7 +195,7 @@ What it does:
         
  - *cols[id]->numeric_val( ):* Is synonymous of numeric_value( ).
         
- - *is( $propertie ):* Return [true|false] Get if all values of row ar $propertie. See Available Properties
+ - *is( $propertie ):* Return [true|false] Return if all values of row are $propertie. See Available Properties
 
         echo $row_math_ml_csv->is( 'string' );
         
