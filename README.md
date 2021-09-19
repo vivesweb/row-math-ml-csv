@@ -179,13 +179,21 @@ What it does:
         
  - *cols[id]->get_structure( ):* Is synonymous of get_properties( ).
         
- - *cols[id]->value( ):* Return the trim() original value parsed without enclosure "" or ''
+ - *cols[id]->value( ):* Return the trim((string)value) & parsed without enclosure "" or ''
 
         echo $row_math_ml_csv->cols[1]->value( ); // See next line of the example
         
         dirty string enclosed by double quotes
         
  - *cols[id]->val( ):* Is synonymous of value( ).
+        
+ - *cols[id]->numeric_value( ):* Return the value in numeric format (float|integer)
+
+        echo $row_math_ml_csv->cols[0]->numeric_value value( ); // See next line of the example
+        
+        10
+        
+ - *cols[id]->numeric_val( ):* Is synonymous of numeric_value( ).
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
