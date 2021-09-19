@@ -90,7 +90,7 @@ echo PHP_EOL;
 
 # METHODS:
 
- - *row_math_ml_csv( $arr_alues, $config ):* Create new class object with array of values:
+ - *row_math_ml_csv( $arr_alues, $config = ['do_math_calcs', 'do_struct'] ):* Create new class object with array of values:
 
         $row_math_ml_csv = new row_math_ml_csv( $arr_alues );
         
