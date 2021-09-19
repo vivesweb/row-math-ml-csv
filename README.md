@@ -51,7 +51,7 @@ What it does:
  
        $arr_values = ['10', '  "dirty string enclosed by double quotes"   ', '0', 'This is a string text', '2021-10-10', '192.168.1.1', '', 'null', null, 'na', 'nan', '-', 'string with, comma'];
 
- - 2.- Create the Class with the Values and draw the table:
+ - 2.- Create the Class with the Values:
 
         $row_math_ml_csv = new row_math_ml_csv( $arr_values );
         
