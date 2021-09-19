@@ -65,7 +65,7 @@ What it does:
         
 # USE ONLY FOR GET DATA CLEANED:
 
- - Next examplo show how to use the class for get values cleaned without do any type of calc on cols
+ - Next example show how to use the class for get values cleaned without do any type of calc on cols:
  
        // Basic usage of the class, only for clean data and reuse it without do any calc
        $config = []; // ['do_math_calcs', 'do_struct']. Empty do not calcs and not do structure actions, but is usefull for transform dirty data to cleaned data.
