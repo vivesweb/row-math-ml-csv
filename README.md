@@ -161,7 +161,7 @@ What it does:
         // 0.6 = 60%
         // 1 = 100%
         
- - *cols[id]->is( $propertie ):* Return [true|false]Get if col[id] is $propertie. See Available Properties
+ - *cols[id]->is( $propertie ):* Return [true|false] Get if col[id] is $propertie. See Available Properties
 
         $row_math_ml_csv->cols[3]->is( 'numeric' ); // return false in the example because col[3] is 'This is a string text', and is not numeric, is 'string'
         
@@ -194,6 +194,19 @@ What it does:
         10
         
  - *cols[id]->numeric_val( ):* Is synonymous of numeric_value( ).
+        
+ - *is( $propertie ):* Return [true|false] Get if all values of row ar $propertie. See Available Properties
+
+        echo $row_math_ml_csv->is( 'string' );
+        
+ - *num_cols():* Return integer. Return the number of cols in the row
+
+        echo $row_math_ml_csv->num_cols();
+        
+ - *values():* Return array of cleaned string values in the row
+
+        $arr_values_cleaned = $row_math_ml_csv->values();
+        echo implode( ',', $arr_values_cleaned );
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
