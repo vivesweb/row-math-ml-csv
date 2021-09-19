@@ -197,16 +197,16 @@ What it does:
         
  - *is( $propertie ):* Return [true|false] Return if all values of row are $propertie. See Available Properties
 
-        echo $row_math_ml_csv->is( 'string' );
+        echo $row_math_ml_csv->is( 'string' ); // in the example return false. There are numbers, ip, date, empties, ....
         
  - *num_cols():* Return integer. Return the number of cols in the row
 
-        echo $row_math_ml_csv->num_cols();
+        echo $row_math_ml_csv->num_cols(); // in the example return 13
         
  - *values():* Return array of cleaned string values in the row
 
         $arr_values_cleaned = $row_math_ml_csv->values();
-        echo implode( ',', $arr_values_cleaned );
+        echo implode( ',', $arr_values_cleaned ); // Return ['10', 'dirty string enclosed by double quotes', '0', 'This is a string text', '2021-10-10', '192.168.1.1', '', 'null', 'null', 'na', 'nan', '-', 'string with, comma']
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
