@@ -42,7 +42,7 @@ class row_math_ml_csv
 	
 	
 	/**
-	 * Set row to do or not math calcs (num emtpy rows, perc empty rows, ....)
+	 * Set row to do or not math calcs (num empty rows, perc empty rows, ....)
 	 *
 	 * @param bool $do_math_calcs;
 	 */

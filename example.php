@@ -140,8 +140,8 @@ unset( $row_math_ml_csv );
 
 
 // Basic usage of the class, only for clean data and reuse it without do any calc
-$config = []; // ['do_math_calcs', 'do_struct']. Empty do not calcs and no not do structure actions, but is usefull for transform dirty data to cleaned data.
-$row_key = 0;
+$config = []; // ['do_math_calcs', 'do_struct']. Empty do not calcs and not do structure actions, but is usefull for transform dirty data to cleaned data.
+$row_key = 0; // in our example we want to see $arr_values[0]. $row_key mean id[0]
 
 $row_math_ml_csv = new row_math_ml_csv( $arr_values[$row_key], $config ); // Get first row values
 

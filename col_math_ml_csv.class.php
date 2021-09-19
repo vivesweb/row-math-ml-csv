@@ -18,14 +18,15 @@
 
 class col_math_ml_csv
 {
-	private $col_value	= null;
-	private $structure 	= [ 'empty' => false, 'empty_null' => false, 'empty_nan' => false, 'empty_anyway' => false, 'string' => false, 'ip' => false, 'date' => false, 'numeric' => false, 'zero' => false, 'str_with_commas' => false, 'positive' => false, 'negative' => false, 'float' => false, 'integer' => false ];
+	private $col_value			= null;
+	private $col_numeric_value	= null;
+	private $structure 			= [ 'empty' => false, 'empty_null' => false, 'empty_nan' => false, 'empty_anyway' => false, 'string' => false, 'ip' => false, 'date' => false, 'numeric' => false, 'zero' => false, 'str_with_commas' => false, 'positive' => false, 'negative' => false, 'float' => false, 'integer' => false ];
 	
-	private $array_nan = array( 'na', 'nan');
+	private $array_nan 			= array( 'na', 'nan');
 	
-	private $array_empty = array( '', '-'); // It takes into account if the value is empty or has a dash '-'. In any case it will be understood as empty
+	private $array_empty 		= array( '', '-'); // It takes into account if the value is empty or has a dash '-'. In any case it will be understood as empty
 
-	private $do_struct = true;
+	private $do_struct			 = true;
 	
     public function __construct( $value = null, $do_struct = true ) {
 		$this->do_struct = $do_struct;
@@ -72,7 +73,7 @@ class col_math_ml_csv
 		$data_value = $this->col_value;
 		
 		// Init 'empty_anyway'. Ensure to have at first of array 'empty_anyway'
-		// On loops to see the values, we need first if is 'emtpy_anyway' | 'str_with_commas'
+		// On loops to see the values, we need first if is 'empty_anyway' | 'str_with_commas'
 		$this->structure['empty_anyway']	= false; // !!! DON'T TOUCH !!!. Need to be initialized at the beginning for priority over individually empty!!!!
 		$this->structure['str_with_commas']	= false; // !!! DON'T TOUCH !!!. Need to be initialized at the beginning for priority individually strings!!!!
 		
@@ -128,6 +129,7 @@ class col_math_ml_csv
 			}
 		} else {
 			// Is number. Cannot Be empty, empty_nan, empty_null, empty_anyway, IP, Date or String (Note. 'string' & 'str_with_commas' is setted before)
+			$this->col_numeric_value =  (($this->structure['integer'])?intval($data_value):floatval($data_value));
 			$this->structure['ip'] = $this->structure['date'] = $this->structure['empty'] = $this->structure['empty_nan'] = $this->structure['empty_null'] = $this->structure['empty_anyway'] = false;
 		}
 	} // / set_arr_struct()
@@ -142,6 +144,28 @@ class col_math_ml_csv
     private function value_is_empty_anyway(  ){
 		return ( $this->structure['empty'] || $this->structure['empty_nan'] || $this->structure['empty_null']);
 	} // value_is_empty_anyway()
+	
+	
+	
+	/**
+	* Get col_value in numeric format
+	*
+	* @return mixed $col_numeric_value
+	*/
+    public function numeric_value( ){
+		return $this->col_numeric_value;
+	} // numeric_value()
+	
+	
+	
+	/**
+	* Get col_value in numeric format. Is synonymous of numeric_value( )
+	*
+	* @return mixed $this->numeric_value()
+	*/
+    public function numeric_val( ){
+		return $this->numeric_value();
+	} // numeric_value()
 	
 	
 	
