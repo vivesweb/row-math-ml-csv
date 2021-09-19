@@ -80,9 +80,38 @@ What it does:
            $arr_cleaned_values[] = $col->value();
        }
 
-echo 'Row id['.$row_key.']. Cleaned Values: ';
-echo implode( ',', $arr_cleaned_values );
-echo PHP_EOL;
+       echo 'Row id['.$row_key.']. Cleaned Values: ';
+       echo implode( ',', $arr_cleaned_values );
+       echo PHP_EOL;
+
+# WHAT INFORMATION CAN I USE?
+'empty': The field is empty. Either has no value or contains '-'
+
+'empty_null': The field contains a NULL value
+
+'empty_nan': The field contains an invalid numeric value NA or NAN
+
+'empty_anyway': It helps us to know if it is empty in any previous way. These fields help us to be alert if our dataset contains empty or null data and to be able to act on them.
+
+'string': The value in a string. In Machine Learning string fields cannot be handled directly. They have to be eliminated or transformed into features
+
+'ip': The value is an IP. We can break it down if we are interested
+
+'date': The value is a date. It is a very important piece of information to know, since dates are very important in Machine learning and can be broken down into many characteristics
+
+'numeric': The value contains a numeric value. It is the ideal thing to be able to use in Machine learning
+
+'zero': The value is a number 0. You have to be careful, since there are values that may seem to be correct, but a 0 could indicate a wrong value or that there is no value in that field
+
+'str_with_commas': The value contains a string with commas. We must be careful if we have passed numbers with ',' to separate the decimals instead of using '.'
+
+'positive': The value is a positive number
+
+'negative': The value is a negative number
+
+'float': Value is a floating point number
+
+'integer': Value is an integer
 
 # AVAILABLE PROPERTIES (each value can have 1 or more properties).
 
