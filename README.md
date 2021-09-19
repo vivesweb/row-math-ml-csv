@@ -84,7 +84,7 @@ echo 'Row id['.$row_key.']. Cleaned Values: ';
 echo implode( ',', $arr_cleaned_values );
 echo PHP_EOL;
 
-# AVAILABLE PROPERTIES
+# AVAILABLE PROPERTIES (each value can have 1 or more properties).
 
         [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'positive', 'negative', 'float', 'integer' ]
 
