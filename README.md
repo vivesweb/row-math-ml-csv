@@ -6,11 +6,13 @@
 
 This class is designed to work with csv data rows, but you can to check any array of data that you need.
 
+You can use this class for clean .csv data too.
+
 When working with datasets, before entering them into the neural network for deep learning, you need to review the data to classify it. You need to know if there are empty, null, erroneous values, if the content is of type numeric, string, date, ip, Zero values is a lot of important to see inconsistent data, string with commas are also important because the value can be a decimal number saparate with ',' instead of '.', .... This class row-math-ml-csv does this work for us.
 
 ## Data engineering support Class in PHP that extract properties in .csv files of datasets ML rows to detect errors. It will help you to get a consistent datasets.
 
-What do:
+What it does:
 - Extract the type/s of each col of the row [ 'empty', 'empty_null', 'empty_nan', 'empty_anyway', 'string', 'ip', 'date', 'numeric', 'zero', 'str_with_commas', 'positive', 'negative', 'float', 'integer' ]
 - Calc the number of empty cols in a row
 - Calc the percentage of empty cols in a row
@@ -60,6 +62,27 @@ What do:
  - 4.- col 4 is date???:
 
         $row_math_ml_csv->cols[4]->is('date'); // return true
+        
+# USE ONLY FOR GET DATA CLEANED:
+
+ - Next examplo show how to use the class for get values cleaned without do any type of calc on cols
+ 
+       // Basic usage of the class, only for clean data and reuse it without do any calc
+       $config = []; // ['do_math_calcs', 'do_struct']. Empty do not calcs and not do structure actions, but is usefull for transform dirty data to cleaned data.
+       $row_key = 0; // in our example we want to see $arr_values[0]. $row_key mean id[0]
+       
+       $row_math_ml_csv = new row_math_ml_csv( $arr_values[$row_key], $config ); // Get first row values
+       
+       echo 'Use the class for get only cleaned values without do any calc:'.PHP_EOL;
+       
+       $arr_cleaned_values = [];
+       foreach($row_math_ml_csv->cols as $col){
+           $arr_cleaned_values[] = $col->value();
+       }
+
+echo 'Row id['.$row_key.']. Cleaned Values: ';
+echo implode( ',', $arr_cleaned_values );
+echo PHP_EOL;
 
 # AVAILABLE PROPERTIES
 
@@ -67,13 +90,13 @@ What do:
 
 # METHODS:
 
- - *row_math_ml_csv( $arr_alues, $do_math_calcs = true ):* Create new class object with array of values:
+ - *row_math_ml_csv( $arr_alues, $config ):* Create new class object with array of values:
 
         $row_math_ml_csv = new row_math_ml_csv( $arr_alues );
         
-        // You can give a $do_calcs param to configure the class for allow or disable math calcs. By default the math calcs are enabled.
+        // $config is an array of ['do_math_calcs', 'do_struct']. Empty [] do not calcs and not do structure actions, but is usefull for transform dirty data to cleaned data. 'do_math_calcs' is the default. If not set, the class do not do math calcs. 'do_struct' check for types of values. If not set, the class do not do any type of process in the struct. If you activate 'do_math_calcs', 'do_struct' is activated automatically.
         
-        $row_math_ml_csv = new row_math_ml_csv( $arr_alues, false );
+        $row_math_ml_csv = new row_math_ml_csv( $arr_alues, [] );
         
  - *set_math_calcs( true|false ):* Set the class to do or no Math Calcs. The class calculate the number of empty rows and it percentage. Calcs spend valuable time on loops. It can be disabled if we don't need these operation math for speed it. Note: You can specify it too when create the class.
 
