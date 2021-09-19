@@ -26,7 +26,7 @@ class row_math_ml_csv
 	public 	$cols			= null;
 	private $structure 		= null;
 	private $do_math_calcs 	= true;
-	private $do_struct 	= true;
+	private $do_struct 		= true;
 	
     public function __construct( $arr_data = null, $config = ['do_math_calcs', 'do_struct'] ) {
 		date_default_timezone_set('Europe/Madrid'); // Required for some PHP versions. If not given raises a warning
@@ -224,6 +224,56 @@ class row_math_ml_csv
 		}
 		return $this->structure['perc_empty_cols'];
 	} // /perc_empty_cols()
+
+	
+
+	/**
+	 * Get array of string values
+	 * 
+	 * @return array $values
+	 */
+    private function values( ) {
+		$values = [];
+		foreach( $this->cols as $col){
+			$values[] = $col->value();
+		} // /foreach key_col
+		
+		return $values
+	} // / values()
+
+	
+
+	/**
+	 * Get count($cols)
+	 * 
+	 * @return int count($cols)
+	 */
+    private function num_cols( ) {
+		return $this->structure['num_cols'];
+	} // / num_cols()
+
+
+	
+	/**
+	* Get boolean propertie of param row struct by param name
+	* All cols need to match with propertie
+	* Ex. is('numeric'), is('date'),  is('ip'), is('empty_null'), is('empty_anyway'), ....
+	*
+	* @param string $param_name // see col_math_ml_csv structure for properties availables
+	* @return boolean true|false
+	*/
+    public function is( $param_name ){
+		$is = true;
+
+		foreach( $cols as $col ){
+			if( !$col->is( $param_name ) ){
+				$is = false;
+				break;
+			}
+		}
+
+		return $is;
+	} // is()
 	
 	
 } // /row_math_ml_csv_struct class
