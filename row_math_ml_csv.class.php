@@ -14,7 +14,8 @@
  * @version 1.0.0
  * @license GNU General Public License v3.0
  * 
- * @param array $row_math_ml_csv
+ * @param array $arr_data
+ * @param array $config
  * @param boolean $do_math_calcs
 */
 
@@ -25,11 +26,13 @@ class row_math_ml_csv
 	public 	$cols			= null;
 	private $structure 		= null;
 	private $do_math_calcs 	= true;
+	private $do_struct 	= true;
 	
-    public function __construct( $arr_data = null, $do_math_calcs = true ) {
+    public function __construct( $arr_data = null, $config = ['do_math_calcs', 'do_struct'] ) {
 		date_default_timezone_set('Europe/Madrid'); // Required for some PHP versions. If not given raises a warning
 		
-		$this->do_math_calcs = $do_math_calcs;
+		$this->do_math_calcs 	= in_array('do_math_calcs', $config);
+		$this->do_struct 		= ( $this->do_math_calcs || in_array('do_struct', $config) );
 		
 		if( isset($arr_data) && !is_null($arr_data) ){
         	$this->set_data_struct( $arr_data );
@@ -45,7 +48,27 @@ class row_math_ml_csv
 	 */
     public function set_math_calcs( $do_math_calcs = true ){
  	 	$this->do_math_calcs = $do_math_calcs;
+		if($this->do_math_calcs){
+			// for do math calcs we need do struct
+			$this->set_do_struct( true );
+		 }
     } // /set_math_calcs()
+		
+	
+	
+	/**
+	 * Set row to do or not struct (integer, string, numeric, empty, .....)
+	 *
+	 * @param bool $do_struct;
+	 */
+    public function set_do_struct( $do_struct = true ){
+ 	 	$this->do_struct = $do_struct;
+		
+		// Set data values
+		foreach( $this->cols as $col ){
+			$col->set_do_struct( $do_struct );
+		}
+    } // /set_do_struct()
 	
 	
 	
@@ -82,7 +105,7 @@ class row_math_ml_csv
 		
 		// Set data values
         foreach( $arr_data as $value ){
-			$this->cols[] = new col_math_ml_csv( $value ); // Create classes
+			$this->cols[] = new col_math_ml_csv( $value, $this->do_struct ); // Create classes
 		}
 		
 		$this->set_num_cols( $num_cols );
@@ -126,7 +149,7 @@ class row_math_ml_csv
 	 * @param int $num_cols
 	 */
     private function set_num_cols( $num_cols = 0 ) {
-		$this->structure['num_cols'] = (($num_col == 0)?count( $this->cols ):$num_cols);
+		$this->structure['num_cols'] = (($num_cols == 0)?count( $this->cols ):$num_cols);
 	} // / set_num_cols()
 	
 	

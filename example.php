@@ -118,7 +118,6 @@ foreach( $arr_values as $row_key => $row_values){
 	echo PHP_EOL;
 	echo 'Row id['.$row_key.'] Col['.$random_col_id.'] => ('.$value_parsed.'). Is string???: '.(($row_math_ml_csv->cols[ $random_col_id ]->is('string'))?'true':'false').PHP_EOL;
 	echo 'Row id['.$row_key.'] Col['.$random_col_id.'] => ('.$value_parsed.'). Is str_with_commas???: '.(($row_math_ml_csv->cols[ $random_col_id ]->is('str_with_commas'))?'true':'false').PHP_EOL;
-	echo 'Row id['.$row_key.'] Col['.$random_col_id.'] => ('.$value_parsed.'). Is string_anyway???: '.(($row_math_ml_csv->cols[ $random_col_id ]->is('string_anyway'))?'true':'false').PHP_EOL;
 	echo 'Row id['.$row_key.'] Col['.$random_col_id.'] => ('.$value_parsed.'). Is numeric???: '.(($row_math_ml_csv->cols[ $random_col_id ]->is('numeric'))?'true':'false').PHP_EOL;
 	echo 'Row id['.$row_key.'] Col['.$random_col_id.'] => ('.$value_parsed.'). Is empty???: '.(($row_math_ml_csv->cols[ $random_col_id ]->is('empty'))?'true':'false').PHP_EOL;
 	echo 'Row id['.$row_key.'] Col['.$random_col_id.'] => ('.$value_parsed.'). Is empty_null???: '.(($row_math_ml_csv->cols[ $random_col_id ]->is('empty_null'))?'true':'false').PHP_EOL;
@@ -136,6 +135,26 @@ foreach( $arr_values as $row_key => $row_values){
 	echo PHP_EOL;
 	echo PHP_EOL;
 }
+
+unset( $row_math_ml_csv );
+
+
+// Basic usage of the class, only for clean data and reuse it without do any calc
+$config = []; // ['do_math_calcs', 'do_struct']. Empty do not calcs and no not do structure actions, but is usefull for transform dirty data to cleaned data.
+$row_key = 0;
+
+$row_math_ml_csv = new row_math_ml_csv( $arr_values[$row_key], $config ); // Get first row values
+
+echo 'Use the class for get only cleaned values without do any calc:'.PHP_EOL;
+
+$arr_cleaned_values = [];
+foreach($row_math_ml_csv->cols as $col){
+	$arr_cleaned_values[] = $col->value();
+}
+
+echo 'Row id['.$row_key.']. Cleaned Values: ';
+echo implode( ',', $arr_cleaned_values );
+echo PHP_EOL;
 
 unset( $row_math_ml_csv );
 ?>

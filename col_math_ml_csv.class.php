@@ -24,8 +24,12 @@ class col_math_ml_csv
 	private $array_nan = array( 'na', 'nan');
 	
 	private $array_empty = array( '', '-'); // It takes into account if the value is empty or has a dash '-'. In any case it will be understood as empty
+
+	private $do_struct = true;
 	
-    public function __construct( $value = null ) {
+    public function __construct( $value = null, $do_struct = true ) {
+		$this->do_struct = $do_struct;
+
 		if( isset($value) && !is_null($value) ){
         	$this->set_value_struct( $value );
         }
@@ -49,9 +53,22 @@ class col_math_ml_csv
     
     
 	/**
+	 * Set do_struct
+	 *
+	 * @param boolean  $do_struct
+	 */
+    public function set_do_struct( $do_struct = true ) {
+		$this->do_struct = $do_struct;
+	} // / set_do_struct()
+    
+    
+    
+	/**
 	 * Set Array structure
 	 */
     private function set_arr_struct( ) {
+		if( !$this->do_struct ) return;
+
 		$data_value = $this->col_value;
 		
 		// Init 'empty_anyway'. Ensure to have at first of array 'empty_anyway'
