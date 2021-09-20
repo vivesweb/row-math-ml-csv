@@ -238,7 +238,7 @@ class row_math_ml_csv
 			$values[] = $col->value();
 		} // /foreach key_col
 		
-		return $values
+		return $values;
 	} // / values()
 
 	
