@@ -207,6 +207,8 @@ What it does:
 
         $arr_values_cleaned = $row_math_ml_csv->values();
         echo implode( ',', $arr_values_cleaned ); // Return ['10', 'dirty string enclosed by double quotes', '0', 'This is a string text', '2021-10-10', '192.168.1.1', '', 'null', 'null', 'na', 'nan', '-', 'string with, comma']
+        
+ - *strtolower_values():* Return array of strtolower(cleaned string) values in the row
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
