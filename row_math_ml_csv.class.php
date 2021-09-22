@@ -244,6 +244,22 @@ class row_math_ml_csv
 	
 
 	/**
+	 * Get array of strtolower(string) values
+	 * 
+	 * @return array $values
+	 */
+    public function strtolower_values( ) {
+		$values = [];
+		foreach( $this->cols as $col){
+			$values[] = $col->strtolower_value();
+		} // /foreach key_col
+		
+		return $values;
+	} // / values()
+
+	
+
+	/**
 	 * Get count($cols)
 	 * 
 	 * @return int count($cols)
