@@ -261,6 +261,17 @@ class col_math_ml_csv
 	
 	
 	/**
+	* Get strtolower(value)
+	*
+	* @return string $value
+	*/
+    public function strtolower_value( ){
+		return strtolower($this->col_value);
+	} // value()
+	
+	
+	
+	/**
 	* Get val. Is synonymous of value( )
 	*
 	* @return string $value
