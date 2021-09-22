@@ -232,7 +232,7 @@ class row_math_ml_csv
 	 * 
 	 * @return array $values
 	 */
-    private function values( ) {
+    public function values( ) {
 		$values = [];
 		foreach( $this->cols as $col){
 			$values[] = $col->value();
@@ -248,7 +248,7 @@ class row_math_ml_csv
 	 * 
 	 * @return int count($cols)
 	 */
-    private function num_cols( ) {
+    public function num_cols( ) {
 		return $this->structure['num_cols'];
 	} // / num_cols()
 
