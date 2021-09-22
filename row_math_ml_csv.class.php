@@ -265,7 +265,7 @@ class row_math_ml_csv
     public function is( $param_name ){
 		$is = true;
 
-		foreach( $cols as $col ){
+		foreach( $this->cols as $col ){
 			if( !$col->is( $param_name ) ){
 				$is = false;
 				break;
