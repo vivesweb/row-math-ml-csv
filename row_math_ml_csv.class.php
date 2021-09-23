@@ -114,7 +114,28 @@ class row_math_ml_csv
 			$this->set_num_and_perc_empty_cols( );
 		}
 	} // / set_data_struct()
-    
+    	
+	
+	
+	/**
+	* Get array of structure. Is synonymous of get_properties( )
+	*
+	* @return array $structure
+	*/
+    public function get_structure( ){
+		return $this->get_properties( );
+	} // get_structure()
+    	
+	
+	
+	/**
+	* Get array of structure.
+	*
+	* @return array $structure
+	*/
+    public function get_properties( ){
+		return $this->cols[0]->get_properties( );
+	} // get_properties()
     
     
 	/**
