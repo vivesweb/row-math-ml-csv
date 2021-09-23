@@ -130,6 +130,7 @@ class row_math_ml_csv
 	
 	/**
 	* Get array of structure.
+	* Any col return the same array. We get 0 by default
 	*
 	* @return array $structure
 	*/
