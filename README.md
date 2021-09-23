@@ -212,6 +212,12 @@ What it does:
 
         $arr_values_cleaned = $row_math_ml_csv->strtolower_values();
         echo implode( ',', $arr_values_cleaned ); // Return ['10', 'dirty string enclosed by double quotes', '0', 'this is a string text', '2021-10-10', '192.168.1.1', '', 'null', 'null', 'na', 'nan', '-', 'string with, comma']
+        
+  - *get_properties( ):* Return array of all available properties with their values.
+
+        $row_math_ml_csv->get_properties( ); // return something like [ 'empty' => false, 'empty_null' => false, 'empty_nan' => false, 'empty_anyway' => false, 'string' => false, 'ip' => false, 'date' => false, 'numeric' => true, 'zero' => true, 'str_with_commas' => false, 'string_anyway' => false, 'positive' => false, 'negative' => false, 'float' => false, 'integer' => false ]
+        
+ - *get_structure( ):* Is synonymous of get_properties( ).
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
