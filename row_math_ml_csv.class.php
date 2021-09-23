@@ -31,8 +31,8 @@ class row_math_ml_csv
     public function __construct( $arr_data = null, $config = ['do_math_calcs', 'do_struct'] ) {
 		date_default_timezone_set('Europe/Madrid'); // Required for some PHP versions. If not given raises a warning
 		
-		$this->do_math_calcs 	= in_array('do_math_calcs', $config);
-		$this->do_struct 		= ( $this->do_math_calcs || in_array('do_struct', $config) );
+		$this->do_math_calcs 	= isset($config['do_math_calcs']);
+		$this->do_struct 		= ( $this->do_math_calcs || isset($config['do_struct']) );
 		
 		if( isset($arr_data) && !is_null($arr_data) ){
         	$this->set_data_struct( $arr_data );
@@ -256,6 +256,8 @@ class row_math_ml_csv
 		
 		return $values;
 	} // / values()
+	
+	
 
 	
 
