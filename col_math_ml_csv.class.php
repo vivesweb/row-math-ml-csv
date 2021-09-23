@@ -95,8 +95,8 @@ class col_math_ml_csv
 			// string types. Can by empty, empty_nan, empty_null, IP, Date or String
 			$this->structure['postive'] = $this->structure['negative'] = $this->structure['float'] = $this->structure['integer'] = $this->structure['zero'] = false;
 			
-			$this->structure['empty'] 		= (  isset($this->array_empty[$data_value])  );
-			$this->structure['empty_nan'] 	= (  isset($this->array_nan[$data_value])  );
+			$this->structure['empty'] 		= (  in_array($data_value, $this->array_empty)  );
+			$this->structure['empty_nan'] 	= (  in_array($data_value, $this->array_nan)  );
 			$this->structure['empty_null'] 	= ( $data_value == 'null' || is_null($data_value) );
 			
 			$this->structure['empty_anyway']	= $this->value_is_empty_anyway( );
